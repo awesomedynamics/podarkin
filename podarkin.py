@@ -1,6 +1,6 @@
 import telebot
 
-bot = telebot.TeleBot("452734858:AAH4JHqKW1MX2XjU2t8pvs1I-idowOvL4hA")
+bot = telebot.TeleBot("474328854:AAEkbRpz5JWow9xD9LEJ42XC1eeRc79ZizU")
 
 office_words = ["ОФИС", "ОФИСА" , "ОФИСНОЕ", "ОФИСНЫЕ"]
 coworking_words = ["КОВОРКИНГ"]
@@ -33,9 +33,9 @@ urls = {
 @bot.message_handler(commands=['start','help'])
 def start_command(message: telebot.types.Message):
     #message_dict = message.__dict__
-    startText = "Привет! Я - Мистер Подаркин ! Хочешь подарок ? Придется отгадать загадку! \n Первый нужно получить прямо сейчас, остальные - когда захочешь!"
+    startText = "Привет! Я - Мистер Подаркин ! Хочешь подарок ? \n Первый нужно получить прямо сейчас, остальные - когда захочешь! \n Можно забрать все сразу или растянуть хоть на год "
     bot.send_message(message.chat.id, startText)
-    commands = ["/Gift 1", "/Gift 2", "/Gift 3", "/Gift 5", "/Gift 6", "Gift 7"]
+    commands = ["/gift_1", "/gift_2", "/gift_3", "/gift_5", "/gift_6", "/gift_7"]
     answer = "\n".join(commands)
     bot.send_message(message.chat.id, answer)
 
@@ -46,19 +46,20 @@ def gifts(message: telebot.types.Message):
     answer = "\n".join(gifts)
     bot.send_message(message.chat.id, answer)
 
+@bot.message_handler(commands=['gift_1'])
+def gift_1(message: telebot.types.Message):
+    answer = open("ticket.png","rb")
+    bot.send_photo(chat_id = message.chat.id, photo = answer)
+
 #handling free text message
 @bot.message_handler()
 def free_text(message: telebot.types.Message):
 
-    answer = answers[step]
+    answer = "Я не могу думать ни о чем кроме подарков! Забери их!"
     bot.send_message(message.chat.id, answer)
 
 
-@bot.message_handler(commands=['gift_1'])
-def gifts(message: telebot.types.Message):
-    gifts = ["/Gift 1", "/Gift 2", "/Gift 3", "/Gift 5", "/Gift 6", "Gift 7"]
-    answer = "\n".join(gifts)
-    bot.send_message(message.chat.id, answer)
+
 
 
 
