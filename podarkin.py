@@ -3,6 +3,8 @@ import pymongo
 import pprint
 from telebot import types
 from pymongo import MongoClient
+import schedule
+import time
 
 
 no_keyboard = types.ReplyKeyboardRemove()
@@ -38,14 +40,7 @@ def start_command(message: telebot.types.Message):
     bot.send_message(message.chat.id, "выбери подарок:",
                      reply_markup=markup)
 
-#handling /gifts
-@bot.message_handler(commands=['gifts'])
-def gifts(message: telebot.types.Message):
-    bot.send_message(message.chat.id, "111", reply_markup=no_keyboard)
-    gifts = ["/gift_1", "/gift_2", "/gift_3", "/gift_5", "/gift_6", "/gift_7"]
-    answer = "\n".join(gifts)
-    bot.send_message(message.chat.id, answer)
-
+# билет в черногорию
 @bot.message_handler(regexp='подарок 1')
 def gift_1(message: telebot.types.Message):
     answer = open("ticket.png","rb")
@@ -53,28 +48,34 @@ def gift_1(message: telebot.types.Message):
     bot.send_photo(chat_id=message.chat.id, photo=answer)
     bot.send_message(chat_id=message.chat.id, text = answer_text)
 
+#спа отель
 @bot.message_handler(regexp='подарок 2')
 def gift_2(message: telebot.types.Message):
     answer = open("spa.png","rb")
     bot.send_message(chat_id=message.chat.id, text="немножко СПА малышу")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
+#колючий коврик
 @bot.message_handler(regexp='подарок 3')
 def gift_3(message: telebot.types.Message):
     answer = open("kovplace.jpg","rb")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
+#черная икра
 @bot.message_handler(regexp='подарок 4')
 def gift_4(message: telebot.types.Message):
     answer = open("kovplace.jpg","rb")
     bot.send_message(chat_id=message.chat.id, text="а тут нужно будет поискать, вот подсказка:")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
+#рик и морти
 @bot.message_handler(regexp='подарок 5')
 def gift_5(message: telebot.types.Message):
+    bot.send_message(chat_id=message.chat.id, text="а это просто осквонченный подарок!")
     answer = open("ticket.png","rb")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
+# просто новый коврик или свечка или что еще 
 @bot.message_handler(regexp='подарок 6')
 def gift_6(message: telebot.types.Message):
     answer = open("ticket.png","rb")
@@ -87,10 +88,6 @@ def free_text(message: telebot.types.Message):
 
     answer = "Я не могу думать ни о чем кроме подарков! Забери их все!"
     bot.send_message(message.chat.id, answer)
-
-
-
-
 
 
 bot.polling()
