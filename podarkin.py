@@ -18,7 +18,7 @@ pprint.pprint(gifts_collection.find_one())
 
 bot = telebot.TeleBot("474328854:AAEkbRpz5JWow9xD9LEJ42XC1eeRc79ZizU")
 
-# подарки: 1 - билеты в чг 2 - банка черной икры 3 - коврик для йоги 4 - спа 5 - колючий коврик 6 - свечка ? 7 -
+# подарки: 1 - билеты в чг 2 - банка черной икры 3 - коврик для йоги 4 - спа 5 - колючий коврик 6 - свечка  7 - рик и морти
 
 #handling start or help command
 @bot.message_handler(commands=['start','help'])
