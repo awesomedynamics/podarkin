@@ -51,7 +51,7 @@ def gift_1(message: telebot.types.Message):
 @bot.message_handler(regexp='подарок 2')
 def gift_2(message: telebot.types.Message):
     answer = open("spa.png","rb")
-    bot.send_message(chat_id=message.chat.id, text="немножко СПА малышу")
+    bot.send_message(chat_id=message.chat.id, text="немножко СПА")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
 #колючий коврик
