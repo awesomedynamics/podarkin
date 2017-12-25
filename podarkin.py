@@ -3,7 +3,6 @@ import pymongo
 import pprint
 from telebot import types
 from pymongo import MongoClient
-import schedule
 import time
 
 
