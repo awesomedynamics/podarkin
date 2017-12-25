@@ -85,7 +85,7 @@ def gift_6(message: telebot.types.Message):
 @bot.message_handler()
 def free_text(message: telebot.types.Message):
 
-    answer = "Я не могу думать ни о чем кроме подарков! Забери их все!"
+    answer = "Я не могу думать ни о чем кроме подарков! Забери их все -- !"
     bot.send_message(message.chat.id, answer)
 
 
