@@ -1,19 +1,21 @@
 import telebot
-import pymongo
-import pprint
+#import pymongo
+#import pprint
 from telebot import types
-from pymongo import MongoClient
-import time
+#from pymongo import MongoClient
+#import time
 
 
 no_keyboard = types.ReplyKeyboardRemove()
 
-client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
-db = client["heroku_q51pzrtm"]
-gifts_collection = db.gifts
+commands = ["подарок раз!", "подарок два!", "подарок три!", "подарок четыре!", "подарок пять!", "подарок шесть!"]
+
+#client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
+#db = client["heroku_q51pzrtm"]
+#gifts_collection = db.gifts
 
 
-pprint.pprint(gifts_collection.find_one())
+#pprint.pprint(gifts_collection.find_one())
 
 
 
@@ -27,9 +29,9 @@ def start_command(message: telebot.types.Message):
 
 
     #message_dict = message.__dict__
-    startText = "Привет! Я - Мистер Подаркин ! Хочешь подарок ? \n Можно забрать все сразу или растянуть хоть на год! "
+    startText = "Привет! Я - Мистер Подаркин ! Хочешь подарок ? "
     bot.send_message(message.chat.id, startText)
-    commands = ["подарок 1", "подарок 2", "подарок 3", "подарок 4", "подарок 5", "подарок 6"]
+
 
     markup = types.ReplyKeyboardMarkup(row_width=2,resize_keyboard=True)
 
@@ -40,45 +42,47 @@ def start_command(message: telebot.types.Message):
                      reply_markup=markup)
 
 # билет в черногорию
-@bot.message_handler(regexp='подарок 1')
+@bot.message_handler(regexp=commands[0])
 def gift_1(message: telebot.types.Message):
     answer = open("ticket.png","rb")
-    answer_text = "это должен был быть сюрприз :)"
+    answer_text = "сюрприз! ты не поверишь, но мы едем в черногорию :)"
     bot.send_photo(chat_id=message.chat.id, photo=answer)
     bot.send_message(chat_id=message.chat.id, text = answer_text)
 
 #спа отель
-@bot.message_handler(regexp='подарок 2')
+@bot.message_handler(regexp=commands[1])
 def gift_2(message: telebot.types.Message):
     answer = open("spa.png","rb")
     bot.send_message(chat_id=message.chat.id, text="немножко СПА")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
 #колючий коврик
-@bot.message_handler(regexp='подарок 3')
+@bot.message_handler(regexp=commands[2])
 def gift_3(message: telebot.types.Message):
-    answer = open("kovplace.jpg","rb")
-    bot.send_photo(chat_id = message.chat.id, photo = answer)
+    answer = open("kovplace.png", "rb")
+    bot.send_message(chat_id=message.chat.id, text="а этот колючий подарок нужно будет поискать, вот подсказка:")
+    bot.send_photo(chat_id=message.chat.id, photo=answer)
 
 #черная икра
-@bot.message_handler(regexp='подарок 4')
+@bot.message_handler(regexp=commands[3])
 def gift_4(message: telebot.types.Message):
-    answer = open("kovplace.jpg","rb")
-    bot.send_message(chat_id=message.chat.id, text="а тут нужно будет поискать, вот подсказка:")
+    answer = open("kovplace.png","rb")
+    bot.send_message(chat_id=message.chat.id, text="ты же любишь черный ?!")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
 #рик и морти
-@bot.message_handler(regexp='подарок 5')
+@bot.message_handler(regexp=commands[4])
 def gift_5(message: telebot.types.Message):
-    bot.send_message(chat_id=message.chat.id, text="а это просто осквонченный подарок!")
-    answer = open("ticket.png","rb")
+    bot.send_message(chat_id=message.chat.id, text="а это просто осквонченный подарок, сможешь отыскать ?!")
+    answer = open("toshiba.jpg","rb")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
-# просто новый коврик или свечка или что еще 
-@bot.message_handler(regexp='подарок 6')
+# свечка
+@bot.message_handler(regexp=commands[5])
 def gift_6(message: telebot.types.Message):
-    answer = open("ticket.png","rb")
-    bot.send_photo(chat_id = message.chat.id, photo = answer)
+    bot.send_message(chat_id=message.chat.id, text="тут будет сложно, найдешь с такой подсказкой ?!")
+    answer = open("parma.png", "rb")
+    bot.send_photo(chat_id=message.chat.id, photo=answer)
 
 
 #handling free text message
