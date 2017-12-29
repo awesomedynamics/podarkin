@@ -45,7 +45,7 @@ def start_command(message: telebot.types.Message):
 @bot.message_handler(regexp=commands[0])
 def gift_1(message: telebot.types.Message):
     answer = open("ticket.png","rb")
-    answer_text = "сюрприз! ты не поверишь, но мы едем в черногорию :)"
+    answer_text = "сюрприз! ты не поверишь, но мы едем в черногорию 🏂"
     bot.send_photo(chat_id=message.chat.id, photo=answer)
     bot.send_message(chat_id=message.chat.id, text = answer_text)
 
@@ -53,7 +53,7 @@ def gift_1(message: telebot.types.Message):
 @bot.message_handler(regexp=commands[1])
 def gift_2(message: telebot.types.Message):
     answer = open("spa.png","rb")
-    bot.send_message(chat_id=message.chat.id, text="немножко СПА")
+    bot.send_message(chat_id=message.chat.id, text="little SPArty never killed nobody 🛀")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
 #колючий коврик
