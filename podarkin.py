@@ -19,7 +19,7 @@ commands = ["подарок раз!", "подарок два!", "подарок 
 
 
 
-bot = telebot.TeleBot("474328854:AAEkbRpz5JWow9xD9LEJ42XC1eeRc79ZizU")
+bot = telebot.TeleBot("536919687:AAGxrbL3RM_6tjIe9ouaDi5caAvMxdgva8M")
 
 # подарки: 1 - билеты в чг 2 - банка черной икры 3 - коврик для йоги 4 - спа 5 - колючий коврик 6 - свечка  7 - рик и морти
 
