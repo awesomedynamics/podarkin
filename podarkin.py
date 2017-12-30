@@ -66,7 +66,7 @@ def gift_3(message: telebot.types.Message):
 #черная икра
 @bot.message_handler(regexp=commands[3])
 def gift_4(message: telebot.types.Message):
-    answer = open("kovplace.png","rb")
+    answer = open("ikra.jpg","rb")
     bot.send_message(chat_id=message.chat.id, text="ты же любишь черный ?!")
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
