@@ -29,7 +29,7 @@ def start_command(message: telebot.types.Message):
 
 
     #message_dict = message.__dict__
-    startText = "Привет! Я - Мистер Подаркин ! Хочешь подарок ? "
+    startText = "Привет! Я - Твой клевый Санта ! Хочешь подарок ? /n Выбирай и жми кнопочку !"
     bot.send_message(message.chat.id, startText)
 
 
