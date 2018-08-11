@@ -37,7 +37,7 @@ def start_command(message: telebot.types.Message):
 
     markup.row(commands[0])
 
-    bot.send_message(message.chat.id, "GUESS WHAT ?",
+    bot.send_message(message.chat.id, "GOOD MORNING!",
                      reply_markup=markup)
 
 # билет в парк
