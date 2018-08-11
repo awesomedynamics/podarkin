@@ -62,36 +62,19 @@ def gift_2(message: telebot.types.Message):
 #кто
 @bot.message_handler(regexp=commands[2])
 def gift_3(message: telebot.types.Message):
-    bot.send_message(chat_id=message.chat.id, text="@filissimos")
+    bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin)
     bot.send_photo(chat_id=message.chat.id, photo=answer)
 
 #черная икра
 @bot.message_handler(regexp=commands[3])
 def gift_4(message: telebot.types.Message):
-    answer = open("ikra.jpg","rb")
-    bot.send_message(chat_id=message.chat.id, text="ты же любишь черный ?!")
-    bot.send_photo(chat_id = message.chat.id, photo = answer)
-
-#рик и морти
-@bot.message_handler(regexp=commands[4])
-def gift_5(message: telebot.types.Message):
-    bot.send_message(chat_id=message.chat.id, text="а это просто осквонченный подарок, сможешь отыскать ?!")
-    answer = open("toshiba.jpg","rb")
-    bot.send_photo(chat_id = message.chat.id, photo = answer)
-
-# свечка
-@bot.message_handler(regexp=commands[5])
-def gift_6(message: telebot.types.Message):
-    bot.send_message(chat_id=message.chat.id, text="тут будет сложно, найдешь с такой подсказкой ?!")
-    answer = open("parma.png", "rb")
-    bot.send_photo(chat_id=message.chat.id, photo=answer)
-
+    bot.send_message(chat_id=message.chat.id, text="твой баланс 💸 1400 AED - загуглишь сам")
 
 #handling free text message
 @bot.message_handler()
 def free_text(message: telebot.types.Message):
 
-    answer = "Я не могу думать ни о чем кроме подарков! Забери их все -- !"
+    answer = "вынь хуй изо рта плиз и жми кнопки"
     bot.send_message(message.chat.id, answer)
 
 
