@@ -63,7 +63,6 @@ def gift_2(message: telebot.types.Message):
 @bot.message_handler(regexp=commands[2])
 def gift_3(message: telebot.types.Message):
     bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin")
-    bot.send_photo(chat_id=message.chat.id, photo=answer)
 
 #черная икра
 @bot.message_handler(regexp=commands[3])
