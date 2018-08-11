@@ -8,7 +8,7 @@ from telebot import types
 
 no_keyboard = types.ReplyKeyboardRemove()
 
-commands = ["GUESS WHAT?", "GUESS WHERE?", "GUESS WHO?", "GUESS HOW MUCH?"]
+commands = ["GUESS WHAT?", "GUESS WHERE?", "GUESS WHO?", "GUESS HOW MUCH?","asdasdasd","asdasdasd","asdasdasdasd"]
 
 #client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
 #db = client["heroku_q51pzrtm"]
