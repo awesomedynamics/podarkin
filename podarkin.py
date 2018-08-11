@@ -8,7 +8,7 @@ from telebot import types
 
 no_keyboard = types.ReplyKeyboardRemove()
 
-commands = ["GUESS WHAT?", "GUESS WHERE?", "GUESS WHO?", "GUESS HOW MUCH?","asdasdasd","asdasdasd","asdasdasdasd"]
+commands = ["GUESS WHAT?", "GUESS WHERE?", "GUESS WHO?", "GUESS HOW MUCH?","ВЫНУТЬ ХУЙ ИЗО РТА"]
 
 #client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
 #db = client["heroku_q51pzrtm"]
@@ -62,12 +62,28 @@ def gift_2(message: telebot.types.Message):
 #кто
 @bot.message_handler(regexp=commands[2])
 def gift_3(message: telebot.types.Message):
-    bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin")
+    markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    markup.row(commands[3])
+    bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin @ksuvier @Ghostkvn @ivashkind @llamamoon")
 
 #черная икра
 @bot.message_handler(regexp=commands[3])
 def gift_4(message: telebot.types.Message):
+    markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    markup.row(commands[4])
     bot.send_message(chat_id=message.chat.id, text="твой баланс 💸 1400 AED - загуглишь сам")
+
+
+@bot.message_handler(regexp=commands[4])
+def gift_5(message: telebot.types.Message):
+    markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+
+    markup.row(commands[0])
+
+    bot.send_message(message.chat.id, "GUESS WHAT ?",
+                     reply_markup=markup)
+
+
 
 #handling free text message
 @bot.message_handler()
