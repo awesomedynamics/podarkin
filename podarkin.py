@@ -45,7 +45,7 @@ def start_command(message: telebot.types.Message):
 def gift_1(message: telebot.types.Message):
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     markup.row(commands[1])
-    answer = open("ticketlego.pdf","rb")
+    answer = open("ticketlego.png","rb")
     answer_text = "🔥"
     bot.send_photo(chat_id=message.chat.id, photo=answer)
     bot.send_message(chat_id=message.chat.id, text = answer_text, reply_markup=markup)
