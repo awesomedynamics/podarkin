@@ -8,7 +8,7 @@ from telebot import types
 
 no_keyboard = types.ReplyKeyboardRemove()
 
-commands = ["подарок раз!", "подарок два!", "подарок три!", "подарок четыре!", "подарок пять!", "подарок шесть!"]
+commands = ["GUESS WHAT?", "GUESS WHERE?", "GUESS WHO?", "GUESS HOW MUCH?"]
 
 #client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
 #db = client["heroku_q51pzrtm"]
@@ -19,7 +19,7 @@ commands = ["подарок раз!", "подарок два!", "подарок 
 
 
 
-bot = telebot.TeleBot("536919687:AAGxrbL3RM_6tjIe9ouaDi5caAvMxdgva8M")
+bot = telebot.TeleBot("668546995:AAHHSnncgjXOLMwsHBHIrgYKMixhE_xPIoQ")
 
 # подарки: 1 - билеты в чг 2 - банка черной икры 3 - коврик для йоги 4 - спа 5 - колючий коврик 6 - свечка  7 - рик и морти
 
@@ -29,31 +29,34 @@ def start_command(message: telebot.types.Message):
 
 
     #message_dict = message.__dict__
-    startText = "Привет! Я - Твой клевый Санта ! Хочешь подарок ? Выбирай и жми кнопочку !"
+    startText = "GUESS WHAT ?"
     bot.send_message(message.chat.id, startText)
 
 
-    markup = types.ReplyKeyboardMarkup(row_width=2,resize_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(row_width=1,resize_keyboard=True)
 
-    markup.row(commands[0],commands[1],commands[2])
-    markup.row(commands[3], commands[4], commands[5])
+    markup.row(commands[0])
 
-    bot.send_message(message.chat.id, "выбери подарок:",
+    bot.send_message(message.chat.id, "GUESS WHAT ?",
                      reply_markup=markup)
 
-# билет в черногорию
+# билет в парк
 @bot.message_handler(regexp=commands[0])
 def gift_1(message: telebot.types.Message):
-    answer = open("ticket.png","rb")
-    answer_text = "сюрприз! ты не поверишь, но мы едем в черногорию 🏂"
+    markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    markup.row(commands[1])
+    answer = open("ticketlego.pdf","rb")
+    answer_text = "🔥"
     bot.send_photo(chat_id=message.chat.id, photo=answer)
-    bot.send_message(chat_id=message.chat.id, text = answer_text)
+    bot.send_message(chat_id=message.chat.id, text = answer_text, reply_markup=markup)
 
 #спа отель
 @bot.message_handler(regexp=commands[1])
 def gift_2(message: telebot.types.Message):
+    markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    markup.row(commands[1])
     answer = open("spa.png","rb")
-    bot.send_message(chat_id=message.chat.id, text="little SPArty never killed nobody 🛀")
+    bot.send_message(chat_id=message.chat.id, text="🔥",reply_markup=markup)
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
 #колючий коврик
