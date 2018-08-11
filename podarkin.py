@@ -29,8 +29,8 @@ def start_command(message: telebot.types.Message):
 
 
     #message_dict = message.__dict__
-    startText = "GUESS WHAT ?"
-    bot.send_message(message.chat.id, startText)
+    #startText = "GUESS WHAT ?"
+    #bot.send_message(message.chat.id, startText)
 
 
     markup = types.ReplyKeyboardMarkup(row_width=1,resize_keyboard=True)
@@ -50,20 +50,19 @@ def gift_1(message: telebot.types.Message):
     bot.send_photo(chat_id=message.chat.id, photo=answer)
     bot.send_message(chat_id=message.chat.id, text = answer_text, reply_markup=markup)
 
-#спа отель
+#билет на самолет
 @bot.message_handler(regexp=commands[1])
 def gift_2(message: telebot.types.Message):
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    markup.row(commands[1])
-    answer = open("spa.png","rb")
+    markup.row(commands[2])
+    answer = open("airticket.png","rb")
     bot.send_message(chat_id=message.chat.id, text="🔥",reply_markup=markup)
     bot.send_photo(chat_id = message.chat.id, photo = answer)
 
-#колючий коврик
+#кто
 @bot.message_handler(regexp=commands[2])
 def gift_3(message: telebot.types.Message):
-    answer = open("kovplace.png", "rb")
-    bot.send_message(chat_id=message.chat.id, text="а этот колючий подарок нужно будет поискать, вот подсказка:")
+    bot.send_message(chat_id=message.chat.id, text="@filissimos")
     bot.send_photo(chat_id=message.chat.id, photo=answer)
 
 #черная икра
