@@ -64,14 +64,14 @@ def gift_2(message: telebot.types.Message):
 def gift_3(message: telebot.types.Message):
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     markup.row(commands[3])
-    bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin @ksuvier @Ghostkvn @ivashkind @llamamoon")
+    bot.send_message(chat_id=message.chat.id, text="@filissimos @katarinawin @ksuvier @Ghostkvn @ivashkind @llamamoon",reply_markup=markup)
 
 #черная икра
 @bot.message_handler(regexp=commands[3])
 def gift_4(message: telebot.types.Message):
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     markup.row(commands[4])
-    bot.send_message(chat_id=message.chat.id, text="твой баланс 💸 1400 AED - загуглишь сам")
+    bot.send_message(chat_id=message.chat.id, text="твой баланс 💸 1400 AED - загуглишь сам",reply_markup=markup)
 
 
 @bot.message_handler(regexp=commands[4])
